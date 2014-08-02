@@ -1,0 +1,24 @@
+{
+    "author": "Ricardo Pardini",
+    "name": "munin-flower-power",
+    "description": "Munin plugin to graph a Flower Power's plant information",
+    "version": "0.0.1",
+    "repository": {
+        "url": ""
+    },
+    /*"main": "./lib/main",*/
+    "bin": {
+        "munin-flower-power": "./bin/munin-flower-power.js"
+    },
+    "dependencies": {
+        "flower-power": "~0.0.1",
+        "munin-plugin": "~0.0.9",
+        "async": "~0.2.9",
+        "addTimeout": "~0.4.0"
+    },
+    "devDependencies": {},
+    "optionalDependencies": {},
+    "engines": {
+        "node": "*"
+    }
+}
