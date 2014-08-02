@@ -6,7 +6,6 @@
     "repository": {
         "url": ""
     },
-    /*"main": "./lib/main",*/
     "bin": {
         "munin-flower-power": "./bin/munin-flower-power.js"
     },
