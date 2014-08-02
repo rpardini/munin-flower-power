@@ -10,7 +10,7 @@
         "munin-flower-power": "bin/munin-flower-power.js"
     },
     "dependencies": {
-        "flower-power": "~0.0.1",
+        "noble": "~0.3.1",
         "munin-plugin": "~0.0.9",
         "async": "~0.2.9",
         "addTimeout": "~0.4.0"
