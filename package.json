@@ -7,7 +7,7 @@
         "url": ""
     },
     "bin": {
-        "munin-flower-power": "./bin/munin-flower-power.js"
+        "munin-flower-power": "bin/munin-flower-power.js"
     },
     "dependencies": {
         "flower-power": "~0.0.1",
