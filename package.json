@@ -1,10 +1,26 @@
 {
-    "author": "Ricardo Pardini",
     "name": "munin-flower-power",
     "description": "Munin plugin to graph a Flower Power's plant information",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "repository": {
-        "url": ""
+        "type": "git",
+        "url": "https://github.com/rpardini/munin-flower-power.git"
+    },
+    "keywords": [
+        "munin",
+        "graphs",
+        "Parrot",
+        "Flower",
+        "Power",
+        "Flower Power"
+    ],
+    "author": {
+        "name": "Ricardo Pardini",
+        "email": "pardini@gmail.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/rpardini/munin-flower-power/issues"
     },
     "bin": {
         "munin-flower-power": "bin/munin-flower-power.js"

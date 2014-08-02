@@ -1,10 +1,34 @@
-#!/usr/bin/env node
+#!/usr/local/bin/node
 var munin = require('munin-plugin');
 var async = require('async');
 var addTimeout = require("addTimeout");
 var debug = false;
 
 var fpData = { complete: false, soilMoisture: 0, batteryLevel: 0, sunlight: 0, tempCelsius: 0 };
+
+var main = function (fpData) {
+    if (!fpData.complete) {
+        process.exit(0);
+    }
+    var g = new munin.Graph('flower power data', 'info', 'plants'); // title, vlabel, category
+    g.add(new munin.Model.Temperature('temp').setValue(fpData.tempCelsius));
+    g.add(new munin.Model.Default('sunlight').setValue(fpData.sunlight));
+    g.add(new munin.Model.Default('battery').setValue(fpData.batteryLevel));
+    g.add(new munin.Model.Default('moisture').setValue(fpData.soilMoisture));
+    g.sortValue();
+    munin.create(g);
+    process.exit(0);
+};
+
+
+var args = process.argv;
+var opt = args[args.length - 1];
+if (opt == "config") {
+    fpData.complete = true;
+    main(fpData);
+}
+
+
 var FlowerPower = require('flower-power');
 
 
@@ -81,16 +105,3 @@ FlowerPower.discover(function (flowerPower) {
 });
 
 
-var main = function (fpData) {
-    if (!fpData.complete) {
-        process.exit(0);
-    }
-    var g = new munin.Graph('flower power data', 'info', 'plants'); // title, vlabel, category
-    g.add(new munin.Model.Temperature('temp').setValue(fpData.tempCelsius));
-    g.add(new munin.Model.Default('sunlight').setValue(fpData.sunlight));
-    g.add(new munin.Model.Default('battery').setValue(fpData.batteryLevel));
-    g.add(new munin.Model.Default('moisture').setValue(fpData.soilMoisture));
-    g.sortValue();
-    munin.create(g);
-    process.exit(0);
-}
